@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Interaction design portfolio of Jiaming Hu.">
+<title>What Should I Watch? | Jiaming Hu</title>
+<link rel="stylesheet" href="style.css">
+<script src="motion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="shell nav"><a class="brand" href="index.html"><span>JH</span> Jiaming Hu</a>
+<nav aria-label="Main navigation"><a href="index.html#work">Work</a><a href="index.html#about">About</a><a href="resume.html">Résumé</a></nav></header>
+<main id="main" class="shell"><header class="case-head"><a class="back" href="index.html#work">← Selected work</a><p class="eyebrow">Team project · Interaction design & dynamic data</p><h1>What Should I Watch?</h1><p class="lede">A sci-fi movie finder that uses six moods and live TMDB data to make choosing a film feel a little easier.</p><a class="button dark" href="https://gangue001.github.io/science-fiction-movie/" target="_blank" rel="noopener">Try the live site <span aria-hidden="true">↗</span></a></header>
+<div class="case"><nav class="case-index" aria-label="Case study sections"><h2>In this case study</h2><ul><li><a href="#brief">Project brief and team roles</a></li><li><a href="#api">API discovery and feature planning</a></li><li><a href="#flow">From a broad flow to mood-first discovery</a></li><li><a href="#wireframes">Wireframes and iteration</a></li><li><a href="#matching">How the mood matching works</a></li><li><a href="#visual">Visual design and motion</a></li><li><a href="#build">Development challenge · Movie posters</a></li><li><a href="#outcome">Final site and reflection</a></li><li><a href="#references">References</a></li></ul></nav>
+<section id="brief"><h2>Project brief and team roles</h2>
+<p>Sci-fi fans can spend more time browsing than deciding. We designed a focused movie finder for people who know how they want a film to feel but may have no title in mind. Visitors can choose a mood, search by title, and browse posters and summaries before deciding.</p>
+<p><strong>My role.</strong> I defined the site’s features, researched what the TMDB API could provide, designed the visual effects, and wrote the final project report.</p>
+<p><strong>Harley’s role.</strong> Harley obtained the API key, wrote the code, and deployed the website.</p>
+</section>
+<section id="api"><h2>API discovery and feature planning</h2>
+<p>We first used Bruno to explore the course’s sample Movie API and see how keyword and genre parameters changed the responses. We then chose TMDB for its movie catalog and its support for search, discovery, posters, and movie details. We used Bruno to check how parameters and authentication affected returned data.</p>
+<p>The feature specification covered mood selection, optional title search, result cards, movie details, and loading additional results. We mapped those actions and the movie data they depended on before refining the interface.</p>
+<figure><a href="assets/movie-7.jpg"><img src="assets/movie-7.jpg" alt="Feature specification chart for the movie finder" loading="lazy"></a><figcaption>Feature specification · <a href="assets/movie-7.jpg">View full size</a></figcaption></figure><figure><a href="assets/movie-9.jpg"><img src="assets/movie-9.jpg" alt="UML use case diagram for the movie finder" loading="lazy"></a><figcaption>UML use case diagram · <a href="assets/movie-9.jpg">View full size</a></figcaption></figure></section>
+<section id="flow"><h2>From a broad flow to mood-first discovery</h2>
+<p>We used AI to brainstorm a first flow, then reviewed it together. Genre and time filters and a “Surprise Me” option made the journey more complicated than we wanted. We simplified the flow around selecting a mood or entering a title, browsing results, and opening a movie’s details.</p>
+<figure><a href="assets/movie-10.jpg"><img src="assets/movie-10.jpg" alt="User flow development showing the move toward mood-based discovery" loading="lazy"></a><figcaption>User flow development · <a href="assets/movie-10.jpg">View full size</a></figcaption></figure></section>
+<section id="wireframes"><h2>Wireframes and iteration</h2>
+<p>The low-fidelity layout established where search and results would sit. The first mid-fidelity version explored a broader set of controls. The second removed the extra filters, kept the mood selector prominent, and added posters so people could scan results visually.</p>
+<figure><a href="assets/movie-12.jpg"><img src="assets/movie-12.jpg" alt="Early low-fidelity movie finder wireframe" loading="lazy"></a><figcaption>Low-fidelity layout · <a href="assets/movie-12.jpg">View full size</a></figcaption></figure><figure><a href="assets/movie-13.jpg"><img src="assets/movie-13.jpg" alt="First mid-fidelity movie finder wireframe" loading="lazy"></a><figcaption>Mid-fidelity version 1 · <a href="assets/movie-13.jpg">View full size</a></figcaption></figure><figure><a href="assets/movie-14.jpg"><img src="assets/movie-14.jpg" alt="Second mid-fidelity wireframe with a prominent mood selector and added posters" loading="lazy"></a><figcaption>Mid-fidelity version 2 · <a href="assets/movie-14.jpg">View full size</a></figcaption></figure></section>
+<section id="matching"><h2>How the mood matching works</h2>
+<p>The site offers six moods: exciting, funny, relaxing, scary, emotional, and mysterious. Each mood maps to related genres within science fiction. For example, “Exciting” can match action, adventure, or thriller, while still requiring the movie to be sci-fi. A title search starts with title matches and then applies the relevant filters. Results are merged and deduplicated, with more available on request.</p>
+<figure><a href="assets/movie-8.jpg"><img src="assets/movie-8.jpg" alt="Diagram showing mood selection, genre mapping, the science fiction filter, and results" loading="lazy"></a><figcaption>Mood-to-genre filtering logic · <a href="assets/movie-8.jpg">View full size</a></figcaption></figure></section>
+<section id="visual"><h2>Visual design and motion</h2>
+<p>I used Eslam Yahya’s “Space Elevator” as a reference for how moving points of light can suggest depth. The final design pairs a moving star field with a near-black background, dark charcoal panels, soft teal accents, off-white body text, and muted secondary labels. The search area and posters remain easy to pick out.</p>
+<p>Azonix gives short headings and the wordmark a futuristic look. Avenir Next handles longer text and controls, and monospace type marks small labels and movie metadata.</p>
+</section>
+<section id="build"><h2>Development challenge · Movie posters</h2>
+<p>One challenge was matching each title to its poster. The TMDB response supplies a poster path, so we used the documentation to combine that path with the image base URL and a size such as <code>w342</code>. The resulting URL lets the browser load the corresponding image directly.</p>
+</section>
+<section id="outcome"><h2>Final site and reflection</h2>
+<p>The published site lets visitors browse by mood, search by title, open movie details, and load more results. AI helped us understand APIs, brainstorm an early flow, and review basic code issues. We made the final decisions about the features and the interaction.</p>
+<p>Mood-to-genre matching gives people a place to start, though viewers can experience the same film differently. A next iteration would test the mappings with sci-fi fans and refine the mobile experience.</p>
+<figure><a href="assets/movie-cover.jpg"><img src="assets/movie-cover.jpg" alt="The published movie finder with a star field, mood selector, and title search" loading="lazy"></a><figcaption>Final movie finder · <a href="assets/movie-cover.jpg">View full size</a></figcaption></figure></section>
+<section id="references"><h2>References</h2>
+<p>Project references include <a href="https://developer.themoviedb.org/docs/getting-started">TMDB’s API documentation</a>, <a href="https://codepen.io/Eslam-Yahya/pen/MvKZKj">Eslam Yahya’s Space Elevator</a>, <a href="https://www.popularmechanics.com/culture/movies/g97/the-100-best-sci-fi-movies-of-all-time/">Popular Mechanics’ sci-fi movie list</a>, and <a href="https://www.curotec.com/insights/agency-website-development-process-overview/">Curotec’s website development overview</a>. The project report also documents AI-assisted brainstorming and code review.</p>
+</section>
+<div class="case-action"><a class="button dark" href="https://gangue001.github.io/science-fiction-movie/" target="_blank" rel="noopener">Try the live site <span aria-hidden="true">↗</span></a></div></div><div class="next"><a href="data-transparency.html">Next project · Xiaohongshu Data Transparency →</a></div></main>
+<footer class="shell footer" id="contact"><div><h2>Let’s connect.</h2><a href="mailto:hujiami@sheridancollege.ca">hujiami@sheridancollege.ca</a></div><a href="https://www.linkedin.com/in/jiaming-hu-1928b543a/" target="_blank" rel="noopener">LinkedIn ↗</a></footer>
+</body>
+</html>
